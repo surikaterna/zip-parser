@@ -1,0 +1,31 @@
+{
+  "name": "zip-parser",
+  "version": "1.0.0",
+  "description": "Parses Zipcode Ranges, Wildcards, etc...",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test --recursive",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive test -u exports -R spec",
+    "coverage-start": "istanbul cover node_modules/mocha/bin/_mocha test --recursive -- -u exports -R spec && start coverage/lcov-report/index.html",
+    "lint": "eslint ./lib"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "mocha": "^2.4.5",
+    "should": "^4.1.0",
+    "eslint-config-surikat": "^1.1.0"    
+  },  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surikaterna/zip-parser.git"
+  },
+  "author": "Surikat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/surikaterna/zip-parser/issues"
+  },
+  "homepage": "https://github.com/surikaterna/zip-parser#readme"
+}
