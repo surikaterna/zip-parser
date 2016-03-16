@@ -12,6 +12,9 @@
     "coverage-start": "istanbul cover node_modules/mocha/bin/_mocha test --recursive -- -u exports -R spec && start coverage/lcov-report/index.html",
     "lint": "eslint ./lib"
   },
+   "dependencies": {
+    "lodash": "^3.3.1"
+  },
   "devDependencies": {
     "istanbul": "^0.3.2",
     "mocha": "^2.4.5",
