@@ -1,0 +1,6 @@
+{
+    "extends": "surikat/es5",
+    "env": {
+        "mocha": true
+    }
+}
