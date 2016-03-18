@@ -1,7 +1,7 @@
 var zipRangeParser = require('../lib/range_parser');
 require('should');
 
-describe('RangeParser', function describeRangeParser() {
+describe('rangeParser', function describeRangeParser() {
   describe('#parseZipRange', function describeRangeParse() {
     it('should return error if contain more than one -', function test() {
       (function parse() {

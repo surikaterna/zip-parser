@@ -1,24 +1,20 @@
 var wildcardParser = require('../lib/wildcard_parser');
 var should = require('should');
 
-describe('zipParser', function describeZipParser() {
-  describe('#parseZip', function describeZipParse() {
+describe('wildcardParser', function describeWildcardParser() {
+  describe('#parseWildcard', function describeWildcardParse() {
     it('should return error if no wildcard found', function test() {
       should.not.exist(wildcardParser('nowildcard'));
     });
 
-    it('should return error if not ending with wildcard', function test() {
-      should.not.exist(wildcardParser('wild*card'));
+    it('should return wildcard entity if wildcard * in middle', function test() {
+        var entity = wildcardParser('wild*card');
+        entity.codes.length.should.equal(1);
     });
 
-    it('should return error if not ending with wildcard', function test() {
-      should.not.exist(wildcardParser('wild?card'));
-    });
-
-    it('should return error if ending with mutiple wildcards', function test() {
-      should.not.exist(wildcardParser('wild?*'));
-      should.not.exist(wildcardParser('wild*?'));
-      should.not.exist(wildcardParser('wild**'));
+    it('should return wildcard entity if wildcard ? in middle', function test() {
+        var entity = wildcardParser('wild?card');
+        entity.codes.length.should.equal(1);
     });
 
     it('should return one wildcard entity', function test() {

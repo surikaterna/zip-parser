@@ -1,8 +1,8 @@
 var regexpParser = require('../lib/regexp_parser');
 var should = require('should');
 
-describe('zipParser', function describeZipParser() {
-  describe('#parseZip', function describeZipParse() {
+describe('regexpParser', function describeRegexpParser() {
+  describe('#parseRegexp', function describeRegexpParse() {
     it('should return error if contain other than numbers and letters', function test() {
       should.not.exist(regexpParser('^\d{5}(?:[-\s]\d{4})?$'));
     });
