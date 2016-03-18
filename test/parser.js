@@ -105,7 +105,7 @@ describe('Parser', function describeParser() {
     it('should parse entry array with 1 wildcard and 2 codes', function test() {
       var entity = parser.parse('411*, 412*');
       entity.length.should.equal(1);
-      entity[0].type.should.equal('regexp');
+      entity[0].type.should.equal('wildcard');
       entity[0].codes.length.should.equal(2);
       entity[0].codes[0].should.equal('411*');
       entity[0].codes[1].should.equal('412*');
@@ -114,7 +114,7 @@ describe('Parser', function describeParser() {
     it('should parse 1 wildcard and 2 codes with different wildcards', function test() {
       var entity = parser.parse('411?, 412*');
       entity.length.should.equal(1);
-      entity[0].type.should.equal('regexp');
+      entity[0].type.should.equal('wildcard');
       entity[0].codes.length.should.equal(2);
       entity[0].codes[0].should.equal('411?');
       entity[0].codes[1].should.equal('412*');

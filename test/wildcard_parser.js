@@ -21,16 +21,16 @@ describe('zipParser', function describeZipParser() {
       should.not.exist(wildcardParser('wild**'));
     });
 
-    it('should return one regexp entity', function test() {
+    it('should return one wildcard entity', function test() {
       var entity = wildcardParser('wild?');
-      entity.type.should.equal('regexp');
+      entity.type.should.equal('wildcard');
       entity.codes.length.should.equal(1);
       entity.codes[0].should.equal('wild?');
     });
 
-    it('should return one regexp entity', function test() {
+    it('should return one wildcard entity', function test() {
       var entity = wildcardParser('411??');
-      entity.type.should.equal('regexp');
+      entity.type.should.equal('wildcard');
       entity.codes.length.should.equal(1);
       entity.codes[0].should.equal('411??');
     });
