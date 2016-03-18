@@ -37,7 +37,7 @@ describe('Parser', function describeParser() {
       entity[0].codes[0].should.equal('41114');
     });
 
-    it('should parse 2 zipcodes and return array with 1 zip entity with 2 codes', function test() {
+    it('should parse 3 zipcodes and return array with 1 zip entity with 2 codes', function test() {
       var entity = parser.parse('41114, 41276, 41112');
       entity.length.should.equal(1);
       entity[0].codes.length.should.equal(3);
@@ -57,7 +57,7 @@ describe('Parser', function describeParser() {
       entity[1].to.should.equal(20000);
     });
 
-    it('should parse zipcode and return array with 1 zip entity and 1 range', function test() {
+    it('should parse zipcode and return array with 1 range and 1 zip entity', function test() {
       var entity = parser.parse('10000-20000, 41114');
       entity.length.should.equal(2);
       entity[0].type.should.equal('range');
@@ -66,6 +66,40 @@ describe('Parser', function describeParser() {
       entity[1].type.should.equal('code');
       entity[1].codes.length.should.equal(1);
       entity[1].codes[0].should.equal('41114');
+    });
+
+    it('should parse zipcode and return array with 2 zip entity and 1 range', function test() {
+      var entity = parser.parse('41276, 10000-20000, 41114');
+      entity.length.should.equal(2);
+      entity[0].type.should.equal('code');
+      entity[0].codes.length.should.equal(2);
+      entity[0].codes[0].should.equal('41276');
+      entity[0].codes[1].should.equal('41114');
+      entity[1].type.should.equal('range');
+      entity[1].from.should.equal(10000);
+      entity[1].to.should.equal(20000);
+    });
+
+    it('should parse entry and return array with 1 code, 1 range and 1 regexp', function test() {
+      var entity = parser.parse('41276, 10000-20000, /^\d{5}(?:[-\s]\d{4})?$/');
+      entity.length.should.equal(3);
+      entity[0].type.should.equal('code');
+      entity[0].codes.length.should.equal(1);
+      entity[0].codes[0].should.equal('41276');
+      entity[1].type.should.equal('range');
+      entity[1].from.should.equal(10000);
+      entity[1].to.should.equal(20000);
+      entity[2].type.should.equal('regexp');
+      entity[2].codes[0].should.equal('/^\d{5}(?:[-\s]\d{4})?$/');
+    });
+
+    it('should parse entry and return array with 1 regexp and 2 codes', function test() {
+      var entity = parser.parse('/*/, /^\d{5}(?:[-\s]\d{4})?$/');
+      entity.length.should.equal(1);
+      entity[0].type.should.equal('regexp');
+      entity[0].codes.length.should.equal(2);
+      entity[0].codes[0].should.equal('/*/');
+      entity[0].codes[1].should.equal('/^\d{5}(?:[-\s]\d{4})?$/');
     });
   });
 });
