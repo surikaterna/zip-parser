@@ -7,28 +7,30 @@ describe('wildcardParser', function describeWildcardParser() {
       should.not.exist(wildcardParser('nowildcard'));
     });
 
-    it('should return wildcard entity if wildcard * in middle', function test() {
-        var entity = wildcardParser('wild*card');
-        entity.codes.length.should.equal(1);
+    it('should return wildcard entity if start with ?', function test() {
+      var entity =  wildcardParser('?startwithwildcard');
+      entity.codes.length.should.equal(1);
     });
 
-    it('should return wildcard entity if wildcard ? in middle', function test() {
+    it('should return wildcard entity if wildcard has ? in middle', function test() {
         var entity = wildcardParser('wild?card');
         entity.codes.length.should.equal(1);
     });
 
-    it('should return one wildcard entity', function test() {
-      var entity = wildcardParser('wild?');
-      entity.type.should.equal('wildcard');
-      entity.codes.length.should.equal(1);
-      entity.codes[0].should.equal('wild?');
+    it('should return wildcard entity if wildcard has ?? in middle', function test() {
+        var entity = wildcardParser('wild??card');
+        entity.codes.length.should.equal(1);
     });
 
-    it('should return one wildcard entity', function test() {
-      var entity = wildcardParser('411??');
-      entity.type.should.equal('wildcard');
+    it('should return wildcard entity if end with ?', function test() {
+      var entity =  wildcardParser('endwithwildcard?');
       entity.codes.length.should.equal(1);
-      entity.codes[0].should.equal('411??');
     });
+    
+    it('should return wildcard entity if end with *', function test() {
+      var entity =  wildcardParser('endwithwildcard?');
+      entity.codes.length.should.equal(1);
+    });
+
   });
 });
