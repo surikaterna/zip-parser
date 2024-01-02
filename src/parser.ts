@@ -2,9 +2,10 @@ import zipWildcard, { type WildcardEntity } from "./parsers/wildcard";
 import zipRange, { type RangeEntity } from "./parsers/range";
 import zipRegexp, { type RegexpEntity } from "./parsers/regexp";
 import zipcode, { type ZipcodeEntity } from "./parsers/zipcode";
-const _strategies = [zipRegexp, zipWildcard, zipRange, zipcode];
-
 export type ZipEntity = WildcardEntity | RangeEntity | RegexpEntity | ZipcodeEntity;
+export { WildcardEntity, RangeEntity, RegexpEntity, ZipcodeEntity };
+
+const _strategies = [zipRegexp, zipWildcard, zipRange, zipcode];
 type EntityType = string;
 
 function entityTypeExists(entities: ZipEntity[], entityType: EntityType) {
