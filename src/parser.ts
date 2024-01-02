@@ -4,7 +4,7 @@ import zipRegexp, { type RegexpEntity } from "./parsers/regexp";
 import zipcode, { type ZipcodeEntity } from "./parsers/zipcode";
 const _strategies = [zipRegexp, zipWildcard, zipRange, zipcode];
 
-type ZipEntity = WildcardEntity | RangeEntity | RegexpEntity | ZipcodeEntity;
+export type ZipEntity = WildcardEntity | RangeEntity | RegexpEntity | ZipcodeEntity;
 type EntityType = string;
 
 function entityTypeExists(entities: ZipEntity[], entityType: EntityType) {
