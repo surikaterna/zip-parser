@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "include": ["src", "types"],
+    "exclude": ["node_modules", "**/*.spec.ts"],
+    "compilerOptions": {
+      "module": "esnext",
+      "rootDir": "./src",
+      "outDir": "./lib",
+      "typeRoots": ["./node_modules/@types", "./types"],
+      "lib": [
+        "esnext"
+      ],
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "strict": true,
+      "declaration": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "emitDeclarationOnly": true,
+      "types": [
+        "jest"
+      ],
+      "skipLibCheck": true
+    }
+  }

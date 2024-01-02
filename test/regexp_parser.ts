@@ -1,4 +1,4 @@
-var regexpParser = require('../lib/regexp_parser');
+import regexpParser from "../src/parsers/regexp";
 var should = require('should');
 
 describe('regexpParser', function describeRegexpParser() {
@@ -17,9 +17,9 @@ describe('regexpParser', function describeRegexpParser() {
 
     it('should return one regexp entity', function test() {
       var entity = regexpParser('/^\d{5}(?:[-\s]\d{4})?$/');
-      entity.type.should.equal('regexp');
-      entity.codes.length.should.equal(1);
-      entity.codes[0].should.equal('/^\d{5}(?:[-\s]\d{4})?$/');
+      should(entity?.type).equal('regexp');
+      should(entity?.codes.length).equal(1);
+      should(entity?.codes[0]).equal('/^\d{5}(?:[-\s]\d{4})?$/');
     });
   });
 });
