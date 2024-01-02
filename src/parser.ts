@@ -3,7 +3,7 @@ import zipRange, { type RangeEntity } from "./parsers/range";
 import zipRegexp, { type RegexpEntity } from "./parsers/regexp";
 import zipcode, { type ZipcodeEntity } from "./parsers/zipcode";
 export type ZipEntity = WildcardEntity | RangeEntity | RegexpEntity | ZipcodeEntity;
-export { WildcardEntity, RangeEntity, RegexpEntity, ZipcodeEntity };
+export type { WildcardEntity, RangeEntity, RegexpEntity, ZipcodeEntity };
 
 const _strategies = [zipRegexp, zipWildcard, zipRange, zipcode];
 type EntityType = string;
