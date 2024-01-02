@@ -1,7 +1,7 @@
 export interface RangeEntity {
   type: "range";
-  from: Number;
-  to: Number;
+  from: number;
+  to: number;
 }
 
 function canParse(entry: string) {
